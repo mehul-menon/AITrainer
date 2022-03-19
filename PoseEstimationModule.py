@@ -32,11 +32,12 @@ class PoseDetector():
                 cv2.circle(img, (cx, cy), 5, (0, 255, 255), cv2.FILLED)
         return self.lmlist
     def findAngle(self,img,p1,p2,p3,draw=True):
+        # storing co-ordinates of points p1, p2, p3
         x1,y1 = self.lmlist[p1][1:]
         x2,y2 = self.lmlist[p2][1:]
         x3,y3 = self.lmlist[p3][1:]
         #finding angle
-        angle = math.degrees(math.atan2((y3-y2),(x3-x2))-math.atan2((y1-y2),(x1-x2)))
+        angle = math.degrees(math.atan2((y3-y2),(x3-x2))-math.atan2((y1-y2),(x1-x2))) 
         if angle<0:
             angle+=360
         if draw:
